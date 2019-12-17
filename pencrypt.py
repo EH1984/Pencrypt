@@ -10,7 +10,7 @@ class PyEncrypt:
 
     def __init__(self, file):
         self.file = file.rstrip('/')
-        self.gpg = gnupg.GPG(gnupghome="/home/eugene/.gnupg")
+        self.gpg = gnupg.GPG(gnupghome="GNUPG DIRECTORY")
         self.choice = input("(e)ncrypt or (d)ecrypt or (c)ancel?")
 
     def pencrypt(self):
@@ -23,7 +23,7 @@ class PyEncrypt:
             # ENCRYPT
             with open(self.file+".tar.gz", 'rb') as f:
                 status = self.gpg.encrypt_file(
-                    f, recipients="eugene_hamill@yahoo.ie", output=self.file+'.tar.gz.gpg')
+                    f, recipients="YOUR EMAIL", output=self.file+'.tar.gz.gpg')
 
                 print('ok: ', status.ok)
                 print('status: ', status.status)
